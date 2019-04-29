@@ -25,6 +25,10 @@ matrix:
     - python: 'pypy3.5-6.0'
       env:
         - TOXENV=pypy3,report
+branches:
+  only:
+  - master
+  - develop
 before_install:
   - python --version
   - uname -a
