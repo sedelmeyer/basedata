@@ -85,4 +85,6 @@ setup(
             'basedata = basedata.cli:main',
         ]
     },
+    use_scm_version=True,
+    setup_requires=['setuptools_scm'],
 )
