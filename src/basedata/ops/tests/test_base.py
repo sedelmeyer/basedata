@@ -1,5 +1,5 @@
 """
-Unit-tests for data module code found in data.__init__.py
+Unit-tests for basedata.ops.base submodule
 """
 import os
 from unittest import TestCase
