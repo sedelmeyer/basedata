@@ -4,13 +4,13 @@ mixin classes and BaseDataClass functionality.
 """
 from .base import BaseDataClass
 # from .cols import ColumnConversionsMixin
-# from .ids import DedupeMixin, ValidIDsMixin
+from .ids import DedupeMixin, ValidIDsMixin
 
 
 Mixins = [
     #     ColumnConversionsMixin,
-    #     DedupeMixin,
-    #     ValidIDsMixin,
+    DedupeMixin,
+    ValidIDsMixin,
 ]
 
 
