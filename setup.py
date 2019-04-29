@@ -73,6 +73,11 @@ setup(
     ],
     python_requires='>=3.5',
     install_requires=[
+        'numpy',
+        'pandas',
+        'OpenPyXL',
+        'xlrd',
+        'xlwt',
         # eg: 'aspectlib==1.1.1', 'six>=1.7',
     ],
     extras_require={
@@ -85,4 +90,6 @@ setup(
             'basedata = basedata.cli:main',
         ]
     },
+    use_scm_version=True,
+    setup_requires=['setuptools_scm'],
 )
