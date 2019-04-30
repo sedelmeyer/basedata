@@ -254,3 +254,12 @@ class ColumnConversionsMixinTests(TestCase):
                 function=lambda x: x,
                 inplace=True,
             )
+
+    def test_add_column(self):
+        """ensure add_column appends new column to self.df"""
+        colname_list = ['col1', 'col2', 'col3']
+        rows = 5
+        df = make_twocol_dataframe(colname_list[0], colname_list[1], n=rows)
+        Conv = self.create_ColumnConversions_class(df)
+        Conv.add_column(colname_list[2], 1)
+        self.assertEqual(sum(df[colname_list[2]].values), rows)
