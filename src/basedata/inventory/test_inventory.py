@@ -1,3 +1,6 @@
+"""
+unittests for basedata.inventory submodule functions
+"""
 import os
 from pathlib import Path
 from unittest import TestCase
