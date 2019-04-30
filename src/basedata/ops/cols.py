@@ -237,3 +237,13 @@ class ColumnConversionsMixin(object):
         series = result.iloc[:, 0] if is_df else result
         return inplace_return_series(self.df, target_column, series,
                                      inplace, return_series, target_column)
+
+    def add_column(self, column, value):
+        """
+        Adds column to self.df and populates that column with a static value
+
+        :param column: str name of new column
+        :param value: object to populate each row of the new column
+        :return: None, self.df is updated inplace
+        """
+        self.df[column] = value
