@@ -208,3 +208,32 @@ class ColumnConversionsMixin(object):
         :return: pandas.DataFrame if inplace is specified as False
         """
         return self.df.rename(columns=map_dict, inplace=inplace)
+
+    def apply_function(self, column_list, function, target_column,
+                       inplace=True, return_series=False, **kwargs):
+        """
+        Applies function to dataframe object, using pandas.DataFrame.apply()
+        method.
+
+        :param column_list: list column name(s) against which to apply function
+        :param function: function to apply to dataframe object
+        :param target_column: None or string name of new column created, if
+            inplace=True target_column name must be specified
+        :param inplace: bool whether to make changes to self.df in place,
+            default=True
+        :param return_series: bool whether to return modified pandas.Series
+            object, default=False
+        :param **kwargs: optional keyword args to for pandas apply method.
+            Axis=1 is required whenever the function is applied to multiple
+            input columns
+        :return: pandas.Series if return_series is specified as True
+        """
+        if inplace and not target_column:
+            raise ValueError(
+                'When inplace == True a target_column name must be specified.'
+            )
+        result = self.df[column_list].copy().apply(function, **kwargs)
+        is_df = isinstance(result, pd.DataFrame)
+        series = result.iloc[:, 0] if is_df else result
+        return inplace_return_series(self.df, target_column, series,
+                                     inplace, return_series, target_column)
