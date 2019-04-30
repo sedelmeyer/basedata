@@ -3,12 +3,12 @@ This submodule contains the BaseDataOps class, which aggregates basedata.ops
 mixin classes and BaseDataClass functionality.
 """
 from .base import BaseDataClass
-# from .cols import ColumnConversionsMixin
+from .cols import ColumnConversionsMixin
 from .ids import DedupeMixin, ValidIDsMixin
 
 
 Mixins = [
-    #     ColumnConversionsMixin,
+    ColumnConversionsMixin,
     DedupeMixin,
     ValidIDsMixin,
 ]
