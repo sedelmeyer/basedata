@@ -9,7 +9,7 @@ import pandas as pd
 from ..cols import ColumnConversionsMixin
 
 from .test_databuild import make_dirty_numeric_dataframe,\
-    make_dirty_datetime_dataframe
+    make_dirty_datetime_dataframe, make_twocol_dataframe
 
 
 numeric_dirt_list = ['', np.nan, '12,400', 'test', '15,987.00']
@@ -189,3 +189,77 @@ class ColumnConversionsMixinTests(TestCase):
             out_test,
             map_vals,
         )
+
+    def test_apply_function_lambda(self):
+        """ensure apply_function works with lambda function"""
+        colname_list = ['col1', 'col2']
+        df = make_twocol_dataframe(colname_list[0], colname_list[1])
+        Conv = self.create_ColumnConversions_class(df)
+        series = Conv.apply_function(
+            [colname_list[0]],
+            target_column=None,
+            function=lambda x: x,
+            inplace=False,
+            return_series=True,
+        )
+        self.assertIsInstance(series, pd.Series)
+        self.assertCountEqual(series.values, df[colname_list[0]].values)
+
+    def test_apply_function_multicol(self):
+        """ensure apply_function works when applied to multiple columns"""
+        colname_list = ['col1', 'col2']
+
+        def test_func(row):
+            return row[colname_list[0]] + row[colname_list[1]]
+
+        df = make_twocol_dataframe(colname_list[0], colname_list[1])
+        Conv = self.create_ColumnConversions_class(df)
+        series = Conv.apply_function(
+            colname_list,
+            target_column=None,
+            function=test_func,
+            inplace=False,
+            return_series=True,
+            axis=1,
+        )
+        print(series)
+        test_series = df[colname_list].sum(axis=1)
+        print(test_series)
+        self.assertIsInstance(series, pd.Series)
+        self.assertCountEqual(series.values, test_series.values)
+
+    def test_apply_function_saves_target_column(self):
+        """ensure apply_function saves inplace to target_column"""
+        colname_list = ['col1', 'col2', 'col3']
+        df = make_twocol_dataframe(colname_list[0], colname_list[1])
+        Conv = self.create_ColumnConversions_class(df)
+        series = Conv.apply_function(
+            [colname_list[0]],
+            target_column=colname_list[2],
+            function=lambda x: x,
+            inplace=True,
+            return_series=True,
+        )
+        self.assertCountEqual(series.values, df[colname_list[2]].values)
+
+    def test_apply_function_raises_value_error(self):
+        """ensure apply_function raises error for inplace no target_column"""
+        colname_list = ['col1', 'col2', 'col3']
+        df = make_twocol_dataframe(colname_list[0], colname_list[1])
+        Conv = self.create_ColumnConversions_class(df)
+        with self.assertRaises(ValueError):
+            Conv.apply_function(
+                [colname_list[0]],
+                target_column=None,
+                function=lambda x: x,
+                inplace=True,
+            )
+
+    def test_add_column(self):
+        """ensure add_column appends new column to self.df"""
+        colname_list = ['col1', 'col2', 'col3']
+        rows = 5
+        df = make_twocol_dataframe(colname_list[0], colname_list[1], n=rows)
+        Conv = self.create_ColumnConversions_class(df)
+        Conv.add_column(colname_list[2], 1)
+        self.assertEqual(sum(df[colname_list[2]].values), rows)
