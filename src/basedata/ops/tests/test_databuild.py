@@ -239,7 +239,7 @@ class DatabuildTests(TestCase):
         test_list = list(df)
         test_rows = len(df)
         self.assertIsInstance(df, pd.DataFrame)
-        self.assertEqual(test_list, colname_list)
+        self.assertCountEqual(test_list, colname_list)
         self.assertEqual(test_rows, rows)
 
     def test_save_simple_dataframe(self):
