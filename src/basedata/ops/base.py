@@ -78,8 +78,8 @@ def regex_replace_value(val, val_new, pattern,
 
 class BaseDataClass(object):
     """
-    BaseDataOps class manages base read/write operations and instantiates
-    self.df for child classes across data submodule classes
+    BaseDataClass manages base read/write operations and instantiates
+    self.df for child classes across basedata.ops submodule classes
     """
 
     def __init__(self, input_df, copy_input):
@@ -90,7 +90,7 @@ class BaseDataClass(object):
     @classmethod
     def from_file(cls, filename, copy_input=False, **read_kwargs):
         """
-        Invokes BaseDataOps class and reads input csv or excel from disk
+        Invokes BaseDataClass and reads input csv or excel from disk
         into a pandas.DataFrame object.
 
         :param filename: str filename of .csv, .xls, or .xlsx file to be read
@@ -112,10 +112,10 @@ class BaseDataClass(object):
     @classmethod
     def from_object(cls, input_object, copy_input=False):
         """
-        Invokes BaseDataOps class and reads input df from class or df
+        Invokes BaseDataClass and reads input df from class or df
         object.
 
-        :param input_object: object to be read into BaseDataOps
+        :param input_object: object to be read into BaseDataClass
         :param copy_input: bool to specify whether self.input_df persists
         :return: pandas.DataFrame and copy_input bool as class variables
         """
