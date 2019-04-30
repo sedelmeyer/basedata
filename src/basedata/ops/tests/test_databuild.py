@@ -63,6 +63,7 @@ def make_dirt_dict(clean_dict, keyname, dirt_list):
 
 
 def merge_dicts(dicts_list):
+    """generates a single dict from an arbitrary number of separate dicts"""
     return dict(ChainMap(*dicts_list))
 
 
@@ -85,6 +86,14 @@ def make_simple_dataframe():
     """builds and returns simple dataframe for TestCase reuse"""
     df_dict = make_id_dict()
     df = make_dataframe([df_dict])
+    return df
+
+
+def make_twocol_dataframe(colname_1='col1', colname_2='col2', n=5):
+    """builds two column dataframe of random digits for TestCase reuse"""
+    df_dict1 = make_id_dict(keyname=colname_1)
+    df_dict2 = make_id_dict(keyname=colname_2)
+    df = make_dataframe([df_dict1, df_dict2])
     return df
 
 
@@ -221,6 +230,17 @@ class DatabuildTests(TestCase):
         """ensure make_simple_dataframe returns dataframe type"""
         df = make_simple_dataframe()
         self.assertIsInstance(df, pd.DataFrame)
+
+    def test_make_twocol_dataframe(self):
+        """ensure make_twocol_datafram returns two column dataframe"""
+        colname_list = ['col1', 'col2']
+        rows = 5
+        df = make_twocol_dataframe(colname_list[0], colname_list[1], n=rows)
+        test_list = list(df)
+        test_rows = len(df)
+        self.assertIsInstance(df, pd.DataFrame)
+        self.assertCountEqual(test_list, colname_list)
+        self.assertEqual(test_rows, rows)
 
     def test_save_simple_dataframe(self):
         """ensure save_simple_dataframe returns fp, df, and path exists"""
