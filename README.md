@@ -6,11 +6,11 @@ BaseData Utilities Library
 ## Summary
 This is an installable Python utilities library containing the following modules:
 
-1. `basedata.ops`
+1. [`basedata.ops`](https://github.com/sedelmeyer/basedata/tree/develop/src/basedata/ops)
     - A number of classes and functions supporting the `BaseDataOps` class.
     - This class packages a number of methods focused on performing repeatable and predictable data transformations, built upon `numpy`, `pandas`, `re`, and other Python libraries.
     - See the diagram below for a high-level summary of how this module and the `BaseDataOps` class is structured.
-1. `basedata.inventory`
+1. [`basedata.inventory`](https://github.com/sedelmeyer/basedata/tree/develop/src/basedata/inventory)
     - **(Currently under development)** Class methods for generating data and file inventory lists and tables.
 1. `basedata.log`
     - **(Not yet implemented)** Class methods for enhanced logging capabilities for recording and saving plain text data transformation log files.
@@ -64,4 +64,4 @@ Base.drop_dupes(column=column_name, index_list=list_items, validate=True)
 Base.to_file("target_filename.csv")
 ```
 
-For more detailed review of available class methods, behaviors, and associated parameters, please see the docstrings located directly within each `basedata.ops` submodule.
+For more detailed review of available class methods, behaviors, and associated parameters, please see the docstrings located directly within [each `basedata.ops` submodule](https://github.com/sedelmeyer/basedata/tree/develop/src/basedata/ops).
