@@ -85,7 +85,7 @@ class BaseDataClass(object):
     def __init__(self, input_df, copy_input):
         if copy_input:
             self.input_df = input_df.copy()  # input df persists for reference
-        self.df = input_df  # subset changes applied to this df
+        self.df = input_df  # all basedata changes applied to this df
 
     @classmethod
     def from_file(cls, filename, copy_input=False, **read_kwargs):
@@ -112,8 +112,8 @@ class BaseDataClass(object):
     @classmethod
     def from_object(cls, input_object, copy_input=False):
         """
-        Invokes BaseDataClass and reads input df from class or df
-        object.
+        Invokes BaseDataClass and reads input df from similar BaseData class 
+        instance or pandas.DataFrame object.
 
         :param input_object: object to be read into BaseDataClass
         :param copy_input: bool to specify whether self.input_df persists
