@@ -9,7 +9,7 @@ from tempfile import TemporaryDirectory
 import numpy as np
 import pandas as pd
 
-from . import list_subdir_paths, list_subdirs,\
+from basedata.inventory import list_subdir_paths, list_subdirs,\
     list_files_with_extensions, list_datafiles, make_datafile_array,\
     make_datafile_dataframe
 
