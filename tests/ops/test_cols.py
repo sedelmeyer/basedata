@@ -33,7 +33,7 @@ class ColumnConversionsMixinTests(TestCase):
         )
         Conv.substitute_chars(keycol, '[^0-9]', '')
         assert False not in [
-            isinstance(val, np.int32) for val
+            isinstance(val.item(), int) for val
             in Conv.df[keycol].dropna().astype(int).values
         ]
 
