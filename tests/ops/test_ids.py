@@ -8,8 +8,8 @@ from tempfile import TemporaryDirectory
 import numpy as np
 import pandas as pd
 
-from ..ids import DedupeMixin, ValidIDsMixin
-from .test_databuild import make_dirty_ids_dataframe
+from basedata.ops.ids import DedupeMixin, ValidIDsMixin
+from test_databuild import make_dirty_ids_dataframe
 
 
 duplicates = [12345678] * 2

@@ -8,9 +8,9 @@ from tempfile import TemporaryDirectory
 import numpy as np
 import pandas as pd
 
-from ..base import BaseDataClass, inplace_return_series,\
+from basedata.ops.base import BaseDataClass, inplace_return_series,\
     regex_sub_value, regex_replace_value
-from .test_databuild import make_simple_dataframe, save_simple_dataframe,\
+from test_databuild import make_simple_dataframe, save_simple_dataframe,\
     make_dirty_numeric_dataframe, make_dirty_datetime_dataframe
 
 

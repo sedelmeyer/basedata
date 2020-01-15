@@ -5,8 +5,8 @@ from unittest import TestCase
 
 import pandas as pd
 
-from .. import BaseDataOps
-from .test_databuild import make_dirty_numeric_dataframe
+from basedata.ops import BaseDataOps
+from test_databuild import make_dirty_numeric_dataframe
 
 
 keycol = 'test'
