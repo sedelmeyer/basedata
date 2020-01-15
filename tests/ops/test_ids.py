@@ -5,7 +5,6 @@ import os
 from unittest import TestCase
 from tempfile import TemporaryDirectory
 
-import numpy as np
 import pandas as pd
 
 from basedata.ops.ids import DedupeMixin, ValidIDsMixin
@@ -118,7 +117,7 @@ class ValidIDsMixinTests(TestCase):
         Valid = self.create_ValidIDs_class()
         Valid.strip_nonnumeric(keycol)
         assert False not in [
-            isinstance(val, np.int32) for val
+            isinstance(val.item(), int) for val
             in Valid.df[keycol].dropna().astype(int).values
         ]
 
