@@ -93,7 +93,7 @@ html_theme_options = {
     'github_user': 'sedelmeyer',
     'github_repo': 'basedata',
     'fixed_sidebar': 'false',
-    'description': 'A utilities library for Python data analysis.',
+    'description': 'A utilities library for Python-based data analysis.',
     'badge_branch': 'master',
     'github_banner': 'true',
     'github_button': 'true',
