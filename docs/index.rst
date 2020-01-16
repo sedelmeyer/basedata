@@ -5,6 +5,7 @@ Welcome to BaseData’s documentation!
    :maxdepth: 2
 
    readme
+   modules
    contributing
    changelog
 
