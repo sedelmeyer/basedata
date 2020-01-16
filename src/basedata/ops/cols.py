@@ -66,7 +66,7 @@ class ColumnConversionsMixin(object):
         :param column: str name of column to check for nonnumeric
         :param dropna: bool optional, whether to drop na values from resulting
             value_count series, default=False
-        :param **kwargs: additional arguments for pandas value_counts method
+        :param kwargs: additional arguments for pandas value_counts method
         :return: pandas.Series object
         """
         value_counts = self.df[
@@ -111,7 +111,7 @@ class ColumnConversionsMixin(object):
         :param column: str name of column to check for datetime conversion
         :param dropna: bool optional, whether to drop na values from resulting
             value_count series, default=False
-        :param **kwargs: additional arguments for pandas value_counts method
+        :param kwargs: additional arguments for pandas value_counts method
         :return: pandas.Series object
         """
         value_counts = self.df[
@@ -155,7 +155,7 @@ class ColumnConversionsMixin(object):
         :param column: str name of column to check for unique values
         :param dropna: bool optional, whether to drop na values from resulting
             value_count series, default=False
-        :param **kwargs: additional arguments for pandas value_counts method
+        :param kwargs: additional arguments for pandas value_counts method
         :return: pandas.Series object
         """
         value_counts = self.df[column].value_counts(dropna=False, **kwargs)
@@ -223,7 +223,7 @@ class ColumnConversionsMixin(object):
             default=True
         :param return_series: bool whether to return modified pandas.Series
             object, default=False
-        :param **kwargs: optional keyword args to for pandas apply method.
+        :param kwargs: optional keyword args to for pandas apply method.
             Axis=1 is required whenever the function is applied to multiple
             input columns
         :return: pandas.Series if return_series is specified as True
