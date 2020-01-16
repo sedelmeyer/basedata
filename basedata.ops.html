@@ -59,7 +59,8 @@ into a pandas.DataFrame object.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filename</strong> – str filename of .csv, .xls, or .xlsx file to be read</p></li>
 <li><p><strong>copy_input</strong> – bool to specify whether self.input_df persists</p></li>
-<li><p><strong>read_kwargs</strong> – optional args to <a href="#id9"><span class="problematic" id="id10">pandas.DataFrame.read_</span></a>…()</p></li>
+<li><p><strong>read_kwargs</strong> – optional args to pandas.DataFrame.read_csv() or
+pandas.DataFrame.read_excel()</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -216,10 +217,9 @@ inplace=True target_column name must be specified</p></li>
 default=True</p></li>
 <li><p><strong>return_series</strong> – bool whether to return modified pandas.Series
 object, default=False</p></li>
-<li><p><strong>**kwargs</strong> – <p>optional keyword args to for pandas apply method.
+<li><p><strong>kwargs</strong> – optional keyword args to for pandas apply method.
 Axis=1 is required whenever the function is applied to multiple
-input columns</p>
-</p></li>
+input columns</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -239,8 +239,7 @@ be directly converted to a datetime data type</p>
 <li><p><strong>column</strong> – str name of column to check for datetime conversion</p></li>
 <li><p><strong>dropna</strong> – bool optional, whether to drop na values from resulting
 value_count series, default=False</p></li>
-<li><p><strong>**kwargs</strong> – <p>additional arguments for pandas value_counts method</p>
-</p></li>
+<li><p><strong>kwargs</strong> – additional arguments for pandas value_counts method</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -260,8 +259,7 @@ be directly converted to numeric data types int or float</p>
 <li><p><strong>column</strong> – str name of column to check for nonnumeric</p></li>
 <li><p><strong>dropna</strong> – bool optional, whether to drop na values from resulting
 value_count series, default=False</p></li>
-<li><p><strong>**kwargs</strong> – <p>additional arguments for pandas value_counts method</p>
-</p></li>
+<li><p><strong>kwargs</strong> – additional arguments for pandas value_counts method</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -331,8 +329,7 @@ default=None</p></li>
 <li><p><strong>column</strong> – str name of column to check for unique values</p></li>
 <li><p><strong>dropna</strong> – bool optional, whether to drop na values from resulting
 value_count series, default=False</p></li>
-<li><p><strong>**kwargs</strong> – <p>additional arguments for pandas value_counts method</p>
-</p></li>
+<li><p><strong>kwargs</strong> – additional arguments for pandas value_counts method</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -668,7 +665,7 @@ which the methods of the many specialized mixin classes is combined.</p>
 <h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="readme.html">BaseData Utilities Python Library</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">basedata</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Modules Documentation</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="basedata.html">basedata package</a></li>
 </ul>
 </li>
@@ -691,7 +688,7 @@ which the methods of the many specialized mixin classes is combined.</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-  <li><a href="modules.html">basedata</a><ul>
+  <li><a href="modules.html">Modules Documentation</a><ul>
   <li><a href="basedata.html">basedata package</a><ul>
       <li>Previous: <a href="basedata.inventory.html" title="previous chapter">basedata.inventory package</a></li>
       <li>Next: <a href="contributing.html" title="next chapter">Contributing</a></li>
