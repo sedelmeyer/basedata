@@ -1,11 +1,10 @@
 Contributing
 ============
 
-Contributions are welcome, and they are greatly appreciated! Every
-little bit helps, and credit will always be given.
+**PLEASE NOTE:** Because this library is still a largely exploratory effort, there is a high probability that maintenance of this project will be abandoned in the near future. For that reason, **contributions are not currently encouraged**. Contribution instructions below are simply boilerplate that has been left here in the documentation for potential future use.
 
 Bug reports
-===========
+-----------
 
 When `reporting a bug <https://github.com/sedelmeyer/basedata/issues>`_ please include:
 
@@ -14,14 +13,14 @@ When `reporting a bug <https://github.com/sedelmeyer/basedata/issues>`_ please i
     * Detailed steps to reproduce the bug.
 
 Documentation improvements
-==========================
+--------------------------
 
 basedata could always use more documentation, whether as part of the
 official basedata docs, in docstrings, or even on the web in blog posts,
 articles, and such.
 
 Feature requests and feedback
-=============================
+-----------------------------
 
 The best way to send feedback is to file an issue at https://github.com/sedelmeyer/basedata/issues.
 
@@ -32,7 +31,7 @@ If you are proposing a feature:
 * Remember that this is a volunteer-driven project, and that code contributions are welcome :)
 
 Development
-===========
+-----------
 
 To set up `basedata` for local development:
 
@@ -61,7 +60,7 @@ To set up `basedata` for local development:
 6. Submit a pull request through the GitHub website.
 
 Pull Request Guidelines
------------------------
+^^^^^^^^^^^^^^^^^^^^^^^
 
 If you need some code review or feedback while you're developing the code just make the pull request.
 
@@ -78,7 +77,7 @@ For merging, you should:
        It will be slower though ...
 
 Tips
-----
+^^^^
 
 To run a subset of tests::
 
