@@ -3,6 +3,10 @@ BaseData Utilities Python Library
 
 This is a utilities library for Python-based data analysis, in which I attempt to encapsulate repeatable data cleansing workflows within a number of classes, methods, and helper functions focused on performing repeatable and predictable data transformations.
 
+.. note::
+
+    Because this library is still a largely exploratory effort, there is a high probability that maintenance of this project will be abandoned in the near future.
+
 .. image:: https://travis-ci.org/sedelmeyer/basedata.svg?branch=master
     :target: https://travis-ci.org/sedelmeyer/basedata
 
