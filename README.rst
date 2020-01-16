@@ -1,7 +1,7 @@
-BaseData Utilities Library
-==========================
+BaseData Utilities Python Library
+=================================
 
-This is a utilities library for Python data analysis, in which I attempt to encapsulate repeatable data cleansing workflows with a number of classes, methods, and helper functions focused on performing repeatable and predictable data transformation.
+This is a utilities library for Python-based data analysis, in which I attempt to encapsulate repeatable data cleansing workflows within a number of classes, methods, and helper functions focused on performing repeatable and predictable data transformation.
 
 .. image:: https://travis-ci.org/sedelmeyer/basedata.svg?branch=master
     :target: https://travis-ci.org/sedelmeyer/basedata
@@ -30,6 +30,9 @@ This is an installable Python utilities library containing the following modules
 
 This library is written using Python 3.6 and is tested against all Python versions >=3.5.
 
+Design
+------
+
 **Figure 1: Summary diagram for the BaseDataOps class**
 
 .. image:: https://www.dropbox.com/s/cim4opz1qtdkx2j/basedata-diagram.png?raw=1
@@ -51,7 +54,7 @@ Basic Usage
 
 The documentation for this library is still under development. Modules, functions, and classes already contained in this library all currently have extensive docstrings describing their behavior.
 
-**The use of the `BaseDataOps` class, which is currently the most complete of all features contained in this library, follows this basic pattern...**
+**The use of the** ``BaseDataOps`` **class, which is currently the most complete of all features contained in this library, follows this basic pattern...**
 
 .. code:: python
 
