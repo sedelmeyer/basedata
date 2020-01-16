@@ -102,4 +102,4 @@ For more detailed review of available class methods, behaviors, and associated p
 
 .. _Pipenv: https://pipenv.readthedocs.io/en/latest/
 .. _pip: https://pip.pypa.io/en/stable/
-.. _conda: https://docs.conda.io/en/latest/
+.. _conda: https://docs.conda.io/projects/conda
