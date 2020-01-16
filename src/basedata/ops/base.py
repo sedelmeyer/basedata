@@ -95,7 +95,8 @@ class BaseDataClass(object):
 
         :param filename: str filename of .csv, .xls, or .xlsx file to be read
         :param copy_input: bool to specify whether self.input_df persists
-        :param read_kwargs: optional args to pandas.DataFrame.read_...()
+        :param read_kwargs: optional args to pandas.DataFrame.read_csv() or
+                            pandas.DataFrame.read_excel()
         :return: pandas.DataFrame and copy_input bool as class variables
         """
         _, ext = os.path.splitext(filename)
@@ -112,7 +113,7 @@ class BaseDataClass(object):
     @classmethod
     def from_object(cls, input_object, copy_input=False):
         """
-        Invokes BaseDataClass and reads input df from similar BaseData class 
+        Invokes BaseDataClass and reads input df from similar BaseData class
         instance or pandas.DataFrame object.
 
         :param input_object: object to be read into BaseDataClass
