@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>basedata.inventory package &#8212; BaseData 0.6.3.dev0+gd0e174d.d20200115 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="canonical" href="https://sedelmeyer.github.io/basedata/basedata.inventory.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="basedata.ops package" href="basedata.ops.html" />
+    <link rel="prev" title="basedata package" href="basedata.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="basedata-inventory-package">
+<h1>basedata.inventory package<a class="headerlink" href="#basedata-inventory-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-basedata.inventory">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-basedata.inventory" title="Permalink to this headline">¶</a></h2>
+<p>This submodule, basedata.inventory, contains functions for generating
+datafile inventory data for a target directory’s sub-directories.</p>
+<dl class="function">
+<dt id="basedata.inventory.list_datafiles">
+<code class="sig-prename descclassname">basedata.inventory.</code><code class="sig-name descname">list_datafiles</code><span class="sig-paren">(</span><em class="sig-param">directory</em>, <em class="sig-param">add_extensions=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.inventory.list_datafiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a list of data-type files in a directory that have desired
+extension types as specified.</p>
+<p>Default extensions captured in this function are
+[‘.csv’, ‘.xls’, ‘.xlsx’, ‘.sqlite3’]</p>
+<p>This list can be appended with the add_extensions parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>directory</strong> – str pathname of target parent directory</p></li>
+<li><p><strong>add_extensions</strong> – list of strings specifying additional target
+extension types, e.g. [‘.txt’, ‘.parquet’]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of filenames for files with matching extension type</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="basedata.inventory.list_files_with_extensions">
+<code class="sig-prename descclassname">basedata.inventory.</code><code class="sig-name descname">list_files_with_extensions</code><span class="sig-paren">(</span><em class="sig-param">directory</em>, <em class="sig-param">ext_list</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.inventory.list_files_with_extensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a list of files in a directory that have desired extension
+types as specified.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>directory</strong> – str pathname of target parent directory</p></li>
+<li><p><strong>ext_list</strong> – list of strings specifying target extension types
+e.g. [‘.csv’, ‘.xls’]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of filenames for files with matching extension type</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="basedata.inventory.list_subdir_paths">
+<code class="sig-prename descclassname">basedata.inventory.</code><code class="sig-name descname">list_subdir_paths</code><span class="sig-paren">(</span><em class="sig-param">directory</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.inventory.list_subdir_paths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a list of subdirectory paths</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>directory</strong> – str pathname of target parent directory</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of paths for each subdirectory in the target parent
+directory</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="basedata.inventory.list_subdirs">
+<code class="sig-prename descclassname">basedata.inventory.</code><code class="sig-name descname">list_subdirs</code><span class="sig-paren">(</span><em class="sig-param">directory</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.inventory.list_subdirs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a list of subdirectory directory basenames.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>directory</strong> – str pathname of target parent directory</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of subdirectory basenames for each subdirectory in the
+target parent directory</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="basedata.inventory.make_datafile_array">
+<code class="sig-prename descclassname">basedata.inventory.</code><code class="sig-name descname">make_datafile_array</code><span class="sig-paren">(</span><em class="sig-param">directory</em>, <em class="sig-param">add_extensions=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.inventory.make_datafile_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates an array of datafile names in a specified directory, along with
+the basename of the directory repeated in a separate column.</p>
+<p>Default extensions captured in this function are
+[‘.csv’, ‘.xls’, ‘.xlsx’, ‘.sqlite3’]</p>
+<p>This list of extensions can be appended with the add_extensions parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>directory</strong> – str pathname of target parent directory</p></li>
+<li><p><strong>add_extensions</strong> – list of strings specifying additional target
+extension types, e.g. [‘.txt’, ‘.parquet’]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>numpy.ndarray of filenames for files with matching extension type
+along with a column repeating the basename of the directory</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="basedata.inventory.make_datafile_dataframe">
+<code class="sig-prename descclassname">basedata.inventory.</code><code class="sig-name descname">make_datafile_dataframe</code><span class="sig-paren">(</span><em class="sig-param">directory</em>, <em class="sig-param">columns=('directory'</em>, <em class="sig-param">'filename')</em>, <em class="sig-param">add_extensions=None</em>, <em class="sig-param">return_df=True</em>, <em class="sig-param">to_file=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.inventory.make_datafile_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a dataframe of subdirectory names and associated datafiles
+contained in each of those subdirectories.</p>
+<p>Default extensions captured in this function are
+[‘.csv’, ‘.xls’, ‘.xlsx’, ‘.sqlite3’]</p>
+<p>This list of extensions can be appended with the add_extensions parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>directory</strong> – str pathname of target parent directory</p></li>
+<li><p><strong>columns</strong> – tuple specifying the name of each column,
+default=(‘directory’, ‘filename’)</p></li>
+<li><p><strong>add_extensions</strong> – list of strings specifying additional target
+extension types, e.g. [‘.txt’, ‘.parquet’]</p></li>
+<li><p><strong>return_df</strong> – bool indicates whether dataframe object is returned,
+default=True</p></li>
+<li><p><strong>to_file</strong> – str or None indicates target filepath to which dataframe
+is saved as a .csv file. None does not save .csv. Default=None</p></li>
+<li><p><strong>kwargs</strong> – additional named parameters for pandas.DataFrame.to_csv()</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>pandas.DataFrame of subdirectory names and associate datafiles
+stored in each subdirectory, returned only if return_df=True</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+              <div class="related bottom">
+                &nbsp;
+  <nav id="rellinks">
+    <ul>
+        <li>
+          &larr;
+          <a href="basedata.html" title="Previous document">basedata package</a>
+        </li>
+        <li>
+          <a href="basedata.ops.html" title="Next document">basedata.ops package</a>
+          &rarr;
+        </li>
+    </ul>
+  </nav>
+              </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">BaseData</a></h1>
+
+
+
+<p class="blurb">A utilities library for Python-based data analysis.</p>
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=sedelmeyer&repo=basedata&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+    
+
+<p>
+<a class="badge" href="https://travis-ci.org/sedelmeyer/basedata">
+    <img
+        alt="https://secure.travis-ci.org/sedelmeyer/basedata.svg?branch=master"
+        src="https://secure.travis-ci.org/sedelmeyer/basedata.svg?branch=master"
+    />
+</a>
+</p>
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">BaseData Utilities Python Library</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">basedata</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="basedata.html">basedata package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+
+<hr />
+<ul>
+    
+    <li class="toctree-l1"><a href="https://www.sedelmeyer.net/">Find me online at sedelmeyer.net</a></li>
+    
+    <li class="toctree-l1"><a href="https://github.com/sedelmeyer">github/sedelmeyer</a></li>
+    
+    <li class="toctree-l1"><a href="https://www.linkedin.com/in/sedelmeyer/">linkedin/sedelmeyer</a></li>
+    
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">basedata</a><ul>
+  <li><a href="basedata.html">basedata package</a><ul>
+      <li>Previous: <a href="basedata.html" title="previous chapter">basedata package</a></li>
+      <li>Next: <a href="basedata.ops.html" title="next chapter">basedata.ops package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019-2020, Michael Sedelmeyer.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/basedata.inventory.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/sedelmeyer/basedata" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

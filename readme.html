@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>BaseData Utilities Python Library &#8212; BaseData 0.6.3.dev0+gd0e174d.d20200115 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="canonical" href="https://sedelmeyer.github.io/basedata/readme.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="basedata" href="modules.html" />
+    <link rel="prev" title="Welcome to BaseData’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="basedata-utilities-python-library">
+<span id="readme"></span><h1>BaseData Utilities Python Library<a class="headerlink" href="#basedata-utilities-python-library" title="Permalink to this headline">¶</a></h1>
+<p>This is a utilities library for Python-based data analysis, in which I attempt to encapsulate repeatable data cleansing workflows within a number of classes, methods, and helper functions focused on performing repeatable and predictable data transformation.</p>
+<a class="reference external image-reference" href="https://travis-ci.org/sedelmeyer/basedata"><img alt="https://travis-ci.org/sedelmeyer/basedata.svg?branch=master" src="https://travis-ci.org/sedelmeyer/basedata.svg?branch=master" /></a>
+<ul class="simple">
+<li><p><strong>GitHub repo:</strong> <a class="reference external" href="https://github.com/sedelmeyer/basedata">https://github.com/sedelmeyer/basedata</a></p></li>
+<li><p><strong>Documentation:</strong> <a class="reference external" href="https://sedelmeyer.github.io/basedata">https://sedelmeyer.github.io/basedata</a></p></li>
+</ul>
+<div class="contents local topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#summary" id="id1">Summary</a></p></li>
+<li><p><a class="reference internal" href="#design" id="id2">Design</a></p></li>
+<li><p><a class="reference internal" href="#installation" id="id3">Installation</a></p></li>
+<li><p><a class="reference internal" href="#basic-usage" id="id4">Basic Usage</a></p></li>
+</ul>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>This is an installable Python utilities library containing the following modules:</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt><a class="reference external" href="https://github.com/sedelmeyer/basedata/tree/develop/src/basedata/ops">basedata.ops</a></dt><dd><ul class="simple">
+<li><p>A number of classes and functions supporting the <code class="docutils literal notranslate"><span class="pre">BaseDataOps</span></code> class.</p></li>
+<li><p>This class packages a number of methods focused on performing repeatable and predictable data transformations, built upon <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">re</span></code>, and other Python libraries.</p></li>
+<li><p>See the diagram below for a high-level summary of how this module and the <code class="docutils literal notranslate"><span class="pre">BaseDataOps</span></code> class is structured.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference external" href="https://github.com/sedelmeyer/basedata/tree/develop/src/basedata/inventory">basedata.inventory</a></dt><dd><ul class="simple">
+<li><p><strong>(Currently under development)</strong> Class methods for generating data and file inventory lists and tables.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>basedata.log</dt><dd><ul class="simple">
+<li><p><strong>(Not yet implemented)</strong> Class methods for enhanced logging capabilities for recording and saving plain text data transformation log files.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<p>This library is written using Python 3.6 and is tested against all Python versions &gt;=3.5.</p>
+</div>
+<div class="section" id="design">
+<h2>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h2>
+<p><strong>Figure 1: Summary diagram for the BaseDataOps class</strong></p>
+<img alt="https://www.dropbox.com/s/cim4opz1qtdkx2j/basedata-diagram.png?raw=1" src="https://www.dropbox.com/s/cim4opz1qtdkx2j/basedata-diagram.png?raw=1" />
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>To install this library using <code class="docutils literal notranslate"><span class="pre">pipenv</span></code>, you can add the following to your Pipfile packages section and run <code class="docutils literal notranslate"><span class="pre">pipenv</span> <span class="pre">update</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+
+<span class="p">[</span><span class="n">packages</span><span class="p">]</span>
+<span class="o">...</span>
+<span class="n">basedata</span> <span class="o">=</span> <span class="p">{</span><span class="n">editable</span> <span class="o">=</span> <span class="n">true</span><span class="p">,</span><span class="n">git</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/sedelmeyer/basedata&quot;</span><span class="p">}</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="basic-usage">
+<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<p>The documentation for this library is still under development. Modules, functions, and classes already contained in this library all currently have extensive docstrings describing their behavior.</p>
+<p><strong>The use of the</strong> <code class="docutils literal notranslate"><span class="pre">BaseDataOps</span></code> <strong>class, which is currently the most complete of all features contained in this library, follows this basic pattern…</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import the BaseDataOps from the appropriate basedata module</span>
+<span class="kn">from</span> <span class="nn">basedata.ops</span> <span class="kn">import</span> <span class="n">BaseDataOps</span>
+
+<span class="c1"># Invoke the BaseDataOps class by reading in a dataframe from file</span>
+<span class="n">Base</span> <span class="o">=</span> <span class="n">BaseDataOps</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s2">&quot;test_datafile.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Or, optionally, the class can be invoked by reading in a pandas.DataFrame</span>
+<span class="c1"># object directly</span>
+<span class="n">Base</span> <span class="o">=</span>  <span class="n">BaseDataOps</span><span class="o">.</span><span class="n">from_object</span><span class="p">(</span><span class="n">dataframe</span><span class="p">)</span>
+
+<span class="c1"># The resulting dataframe persists in the BaseDataOps class object as self.df.</span>
+<span class="c1"># Therefore, if you&#39;d like to access the dataframe directly...</span>
+<span class="n">df_copy</span> <span class="o">=</span> <span class="n">Base</span><span class="o">.</span><span class="n">df</span>
+
+<span class="c1"># Likewise, as transformations are performed using the BaseDataOps class</span>
+<span class="c1"># instance, those changes are performed on the self.df object directly.</span>
+<span class="n">Base</span><span class="o">.</span><span class="n">drop_dupes</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="n">column_name</span><span class="p">,</span> <span class="n">index_list</span><span class="o">=</span><span class="n">list_items</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># The modified dataframe can also be saved to .csv directly via the BaseDataOps</span>
+<span class="c1"># class instance.</span>
+<span class="n">Base</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s2">&quot;target_filename.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For more detailed review of available class methods, behaviors, and associated parameters, please see the docstrings located directly within <a class="reference external" href="https://github.com/sedelmeyer/basedata/tree/develop/src/basedata/ops">each basedata.ops submodule</a>.</p>
+</div>
+</div>
+
+
+          </div>
+              <div class="related bottom">
+                &nbsp;
+  <nav id="rellinks">
+    <ul>
+        <li>
+          &larr;
+          <a href="index.html" title="Previous document">Welcome to BaseData’s documentation!</a>
+        </li>
+        <li>
+          <a href="modules.html" title="Next document">basedata</a>
+          &rarr;
+        </li>
+    </ul>
+  </nav>
+              </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">BaseData</a></h1>
+
+
+
+<p class="blurb">A utilities library for Python-based data analysis.</p>
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=sedelmeyer&repo=basedata&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+    
+
+<p>
+<a class="badge" href="https://travis-ci.org/sedelmeyer/basedata">
+    <img
+        alt="https://secure.travis-ci.org/sedelmeyer/basedata.svg?branch=master"
+        src="https://secure.travis-ci.org/sedelmeyer/basedata.svg?branch=master"
+    />
+</a>
+</p>
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">BaseData Utilities Python Library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#design">Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-usage">Basic Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">basedata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+
+<hr />
+<ul>
+    
+    <li class="toctree-l1"><a href="https://www.sedelmeyer.net/">Find me online at sedelmeyer.net</a></li>
+    
+    <li class="toctree-l1"><a href="https://github.com/sedelmeyer">github/sedelmeyer</a></li>
+    
+    <li class="toctree-l1"><a href="https://www.linkedin.com/in/sedelmeyer/">linkedin/sedelmeyer</a></li>
+    
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to BaseData’s documentation!</a></li>
+      <li>Next: <a href="modules.html" title="next chapter">basedata</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019-2020, Michael Sedelmeyer.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/readme.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/sedelmeyer/basedata" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

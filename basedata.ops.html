@@ -1,0 +1,745 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>basedata.ops package &#8212; BaseData 0.6.3.dev0+gd0e174d.d20200115 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="canonical" href="https://sedelmeyer.github.io/basedata/basedata.ops.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Contributing" href="contributing.html" />
+    <link rel="prev" title="basedata.inventory package" href="basedata.inventory.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="basedata-ops-package">
+<h1>basedata.ops package<a class="headerlink" href="#basedata-ops-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-basedata.ops.base">
+<span id="basedata-ops-base-module"></span><h2>basedata.ops.base module<a class="headerlink" href="#module-basedata.ops.base" title="Permalink to this headline">¶</a></h2>
+<p>This module contains the BaseDataClass parent class and common functions that
+are that are reused across basedata.ops submodules.</p>
+<dl class="class">
+<dt id="basedata.ops.base.BaseDataClass">
+<em class="property">class </em><code class="sig-prename descclassname">basedata.ops.base.</code><code class="sig-name descname">BaseDataClass</code><span class="sig-paren">(</span><em class="sig-param">input_df</em>, <em class="sig-param">copy_input</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.base.BaseDataClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>BaseDataClass manages base read/write operations and instantiates
+self.df for child classes across basedata.ops submodule classes</p>
+<dl class="method">
+<dt id="basedata.ops.base.BaseDataClass.from_file">
+<em class="property">classmethod </em><code class="sig-name descname">from_file</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">copy_input=False</em>, <em class="sig-param">**read_kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.base.BaseDataClass.from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invokes BaseDataClass and reads input csv or excel from disk
+into a pandas.DataFrame object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> – str filename of .csv, .xls, or .xlsx file to be read</p></li>
+<li><p><strong>copy_input</strong> – bool to specify whether self.input_df persists</p></li>
+<li><p><strong>read_kwargs</strong> – optional args to <a href="#id9"><span class="problematic" id="id10">pandas.DataFrame.read_</span></a>…()</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>pandas.DataFrame and copy_input bool as class variables</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="basedata.ops.base.BaseDataClass.from_object">
+<em class="property">classmethod </em><code class="sig-name descname">from_object</code><span class="sig-paren">(</span><em class="sig-param">input_object</em>, <em class="sig-param">copy_input=False</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.base.BaseDataClass.from_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invokes BaseDataClass and reads input df from similar BaseData class
+instance or pandas.DataFrame object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_object</strong> – object to be read into BaseDataClass</p></li>
+<li><p><strong>copy_input</strong> – bool to specify whether self.input_df persists</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>pandas.DataFrame and copy_input bool as class variables</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="basedata.ops.base.BaseDataClass.to_file">
+<code class="sig-name descname">to_file</code><span class="sig-paren">(</span><em class="sig-param">target_filename</em>, <em class="sig-param">**to_csv_kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.base.BaseDataClass.to_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves current version of self.df to file in csv format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_filename</strong> – str filename to which csv should be written</p></li>
+<li><p><strong>to_csv_kwargs</strong> – optional args to pandas.DataFrame.to_csv()</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="basedata.ops.base.inplace_return_series">
+<code class="sig-prename descclassname">basedata.ops.base.</code><code class="sig-name descname">inplace_return_series</code><span class="sig-paren">(</span><em class="sig-param">dataframe</em>, <em class="sig-param">column</em>, <em class="sig-param">series</em>, <em class="sig-param">inplace</em>, <em class="sig-param">return_series</em>, <em class="sig-param">target_column=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.base.inplace_return_series" title="Permalink to this definition">¶</a></dt>
+<dd><p>helper function to reuse throughout library. It applies logic for
+performing inplace series transformations and returning copies of
+modified series</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataframe</strong> – pandas.DataFrame for which we are modifying series</p></li>
+<li><p><strong>column</strong> – str name of target column for our series</p></li>
+<li><p><strong>series</strong> – pandas.Series</p></li>
+<li><p><strong>inplace</strong> – bool whether we wish to overwrite existing column
+with series</p></li>
+<li><p><strong>return_series</strong> – bool whether we wish to return a copy of the
+pandas.Series object</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>pandas.Series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="basedata.ops.base.regex_replace_value">
+<code class="sig-prename descclassname">basedata.ops.base.</code><code class="sig-name descname">regex_replace_value</code><span class="sig-paren">(</span><em class="sig-param">val</em>, <em class="sig-param">val_new</em>, <em class="sig-param">pattern</em>, <em class="sig-param">val_exception=nan</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.base.regex_replace_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replaces string value if Regex pattern is not satisfied by the input value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>val</strong> – str input value to be evaluated by Regex re.match function</p></li>
+<li><p><strong>pattern</strong> – str regex pattern used to identify values to replace</p></li>
+<li><p><strong>val_new</strong> – str replacement value if input pattern is not satisfied</p></li>
+<li><p><strong>val_exception</strong> – str or np.nan value to return in input value raises
+an exception (default=np.nan)</p></li>
+<li><p><strong>val_none</strong> – str or np.nan value to return if input value is none or
+np.nan (default=np.nan)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>str output value based on input parameters</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="basedata.ops.base.regex_sub_value">
+<code class="sig-prename descclassname">basedata.ops.base.</code><code class="sig-name descname">regex_sub_value</code><span class="sig-paren">(</span><em class="sig-param">val</em>, <em class="sig-param">pattern</em>, <em class="sig-param">val_sub=''</em>, <em class="sig-param">val_exception=nan</em>, <em class="sig-param">val_none=nan</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.base.regex_sub_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replaces characters in a string value based on specified Regex pattern</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>val</strong> – str input value to be evaluated by Regex re.sub function</p></li>
+<li><p><strong>pattern</strong> – str regex pattern used to identify characters to subsitute</p></li>
+<li><p><strong>val_sub</strong> – str value to substitute for specified input characters</p></li>
+<li><p><strong>val_exception</strong> – str or np.nan value to return in input value raises
+an exception (default=np.nan)</p></li>
+<li><p><strong>val_none</strong> – str or np.nan value to return if input value is none or
+np.nan (default=np.nan)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>str value based on input parameters</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-basedata.ops.cols">
+<span id="basedata-ops-cols-module"></span><h2>basedata.ops.cols module<a class="headerlink" href="#module-basedata.ops.cols" title="Permalink to this headline">¶</a></h2>
+<p>This submodule basedata.ops mixin classes for manipulating column values and
+column names.</p>
+<p>The functionality of these mixin classes is aggregated in the basedata.ops
+BaseDataOps class.</p>
+<dl class="class">
+<dt id="basedata.ops.cols.ColumnConversionsMixin">
+<em class="property">class </em><code class="sig-prename descclassname">basedata.ops.cols.</code><code class="sig-name descname">ColumnConversionsMixin</code><a class="headerlink" href="#basedata.ops.cols.ColumnConversionsMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Mixin class methods and associated tools for converting column
+values to specific types</p>
+<dl class="method">
+<dt id="basedata.ops.cols.ColumnConversionsMixin.add_column">
+<code class="sig-name descname">add_column</code><span class="sig-paren">(</span><em class="sig-param">column</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.cols.ColumnConversionsMixin.add_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds column to self.df and populates that column with a static value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>column</strong> – str name of new column</p></li>
+<li><p><strong>value</strong> – object to populate each row of the new column</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None, self.df is updated inplace</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="basedata.ops.cols.ColumnConversionsMixin.apply_function">
+<code class="sig-name descname">apply_function</code><span class="sig-paren">(</span><em class="sig-param">column_list</em>, <em class="sig-param">function</em>, <em class="sig-param">target_column</em>, <em class="sig-param">inplace=True</em>, <em class="sig-param">return_series=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.cols.ColumnConversionsMixin.apply_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies function to dataframe object, using pandas.DataFrame.apply()
+method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>column_list</strong> – list column name(s) against which to apply function</p></li>
+<li><p><strong>function</strong> – function to apply to dataframe object</p></li>
+<li><p><strong>target_column</strong> – None or string name of new column created, if
+inplace=True target_column name must be specified</p></li>
+<li><p><strong>inplace</strong> – bool whether to make changes to self.df in place,
+default=True</p></li>
+<li><p><strong>return_series</strong> – bool whether to return modified pandas.Series
+object, default=False</p></li>
+<li><p><strong>**kwargs</strong> – <p>optional keyword args to for pandas apply method.
+Axis=1 is required whenever the function is applied to multiple
+input columns</p>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>pandas.Series if return_series is specified as True</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="basedata.ops.cols.ColumnConversionsMixin.check_datetime">
+<code class="sig-name descname">check_datetime</code><span class="sig-paren">(</span><em class="sig-param">column</em>, <em class="sig-param">dropna=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.cols.ColumnConversionsMixin.check_datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a value_counts series reporting all column values that cannot
+be directly converted to a datetime data type</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>column</strong> – str name of column to check for datetime conversion</p></li>
+<li><p><strong>dropna</strong> – bool optional, whether to drop na values from resulting
+value_count series, default=False</p></li>
+<li><p><strong>**kwargs</strong> – <p>additional arguments for pandas value_counts method</p>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>pandas.Series object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="basedata.ops.cols.ColumnConversionsMixin.check_nonnumeric">
+<code class="sig-name descname">check_nonnumeric</code><span class="sig-paren">(</span><em class="sig-param">column</em>, <em class="sig-param">dropna=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.cols.ColumnConversionsMixin.check_nonnumeric" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a value_counts series reporting all column values that cannot
+be directly converted to numeric data types int or float</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>column</strong> – str name of column to check for nonnumeric</p></li>
+<li><p><strong>dropna</strong> – bool optional, whether to drop na values from resulting
+value_count series, default=False</p></li>
+<li><p><strong>**kwargs</strong> – <p>additional arguments for pandas value_counts method</p>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>pandas.Series object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="basedata.ops.cols.ColumnConversionsMixin.map_column_names">
+<code class="sig-name descname">map_column_names</code><span class="sig-paren">(</span><em class="sig-param">map_dict</em>, <em class="sig-param">inplace=True</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.cols.ColumnConversionsMixin.map_column_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>maps existing column names to new names based on input dictionary</p>
+<p>acts as a simple wrapper for the pandas DataFrame.rename method, when
+columns are specified in that functions parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>map_dict</strong> – dict mapping {current_value: new_value}</p></li>
+<li><p><strong>inplace</strong> – bool whether to make changes to self.df in place,
+default=True</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>pandas.DataFrame if inplace is specified as False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="basedata.ops.cols.ColumnConversionsMixin.map_values">
+<code class="sig-name descname">map_values</code><span class="sig-paren">(</span><em class="sig-param">column</em>, <em class="sig-param">map_dict</em>, <em class="sig-param">na_action=None</em>, <em class="sig-param">exhaustive=False</em>, <em class="sig-param">inplace=True</em>, <em class="sig-param">return_series=False</em>, <em class="sig-param">target_column=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.cols.ColumnConversionsMixin.map_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>maps existing column values to new value based on input dictionary</p>
+<p>acts as a simple wrapper for the pandas Series.map method</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>column</strong> – str name of column in which value will be mapped</p></li>
+<li><p><strong>map_dict</strong> – dict mapping {current_value: new_value}</p></li>
+<li><p><strong>na_action</strong> – None or ‘ignore’, if ‘ignore’ propogate NaN values
+without passing them to the mapping correspondence, defaul=None</p></li>
+<li><p><strong>exhaustive</strong> – bool whether or not value map is expected to affect
+all values in the series, if True, any values not matching map_dict
+will be converted to np.nan, if False, they retain their original
+values. default=False</p></li>
+<li><p><strong>inplace</strong> – bool whether to make changes to self.df in place,
+default=True</p></li>
+<li><p><strong>return_series</strong> – bool whether to return modified pandas.Series
+object, default=False</p></li>
+<li><p><strong>target_column</strong> – None or string name of new column created, if
+None and inplace=True, modified series replaces original column,
+default=None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>pandas.Series if return_series is specified as True</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="basedata.ops.cols.ColumnConversionsMixin.report_values">
+<code class="sig-name descname">report_values</code><span class="sig-paren">(</span><em class="sig-param">column</em>, <em class="sig-param">dropna=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.cols.ColumnConversionsMixin.report_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a value_counts series reporting all unique column values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>column</strong> – str name of column to check for unique values</p></li>
+<li><p><strong>dropna</strong> – bool optional, whether to drop na values from resulting
+value_count series, default=False</p></li>
+<li><p><strong>**kwargs</strong> – <p>additional arguments for pandas value_counts method</p>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>pandas.Series object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="basedata.ops.cols.ColumnConversionsMixin.substitute_chars">
+<code class="sig-name descname">substitute_chars</code><span class="sig-paren">(</span><em class="sig-param">column</em>, <em class="sig-param">pattern</em>, <em class="sig-param">val_sub</em>, <em class="sig-param">val_exception=nan</em>, <em class="sig-param">val_none=nan</em>, <em class="sig-param">inplace=True</em>, <em class="sig-param">return_series=False</em>, <em class="sig-param">target_column=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.cols.ColumnConversionsMixin.substitute_chars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Strips or replaces characters from column values.</p>
+<p>When val_sub is ‘’, this method strips the characters specified by
+the regex pattern. If the objective is to replace the specified
+characters, specify the desired replacement characters using val_sub
+(i.e. val_sub=’substring’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>column</strong> – str name of column on which to apply this operation</p></li>
+<li><p><strong>pattern</strong> – str Regex pattern specifying which types of characters
+to substiture with val_sub str</p></li>
+<li><p><strong>val_sub</strong> – str character(s) with which to replace pattern values</p></li>
+<li><p><strong>val_exception</strong> – str or numpy.nan value to return for instances
+where an exception is raised, default=numpy.nan</p></li>
+<li><p><strong>val_none</strong> – str or numpy.nan value to return for instances of
+either None or np.nan, default=numpy.nan</p></li>
+<li><p><strong>inplace</strong> – bool whether to make changes to self.df in place,
+default=True</p></li>
+<li><p><strong>return_series</strong> – bool whether to return modified pandas.Series
+object, default=False</p></li>
+<li><p><strong>target_column</strong> – None or string name of new column created, if
+None and inplace=True, modified series replaces original column,
+default=None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>pandas.Series if return_series is specified as True</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="basedata.ops.cols.ColumnConversionsMixin.to_datetime">
+<code class="sig-name descname">to_datetime</code><span class="sig-paren">(</span><em class="sig-param">column</em>, <em class="sig-param">coerce=True</em>, <em class="sig-param">inplace=True</em>, <em class="sig-param">return_series=False</em>, <em class="sig-param">target_column=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.cols.ColumnConversionsMixin.to_datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>wrapper for pandas to_numeric method, which converts column values to
+a datetime data type</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>column</strong> – str name of column to convert to datetime</p></li>
+<li><p><strong>coerce</strong> – bool optional, specifies whether to ‘coerce’
+non-convertable values to numpy.nan if True or to leave those
+values as is if False, default=True</p></li>
+<li><p><strong>inplace</strong> – bool whether to make changes to self.df in place,
+default=True</p></li>
+<li><p><strong>return_series</strong> – bool whether to return modified pandas.Series
+object, default=False</p></li>
+<li><p><strong>target_column</strong> – None or string name of new column created, if
+None and inplace=True, modified series replaces original column,
+default=None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>pandas.Series if return_series is specified as True</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="basedata.ops.cols.ColumnConversionsMixin.to_numeric">
+<code class="sig-name descname">to_numeric</code><span class="sig-paren">(</span><em class="sig-param">column</em>, <em class="sig-param">coerce=True</em>, <em class="sig-param">inplace=True</em>, <em class="sig-param">return_series=False</em>, <em class="sig-param">target_column=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.cols.ColumnConversionsMixin.to_numeric" title="Permalink to this definition">¶</a></dt>
+<dd><p>wrapper for pandas to_numeric method, which converts column values to
+a numeric data type (int or float)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>column</strong> – str name of column to convert to numeric</p></li>
+<li><p><strong>coerce</strong> – bool optional, specifies whether to ‘coerce’
+non-convertable values to numpy.nan if True or to leave those
+values as is if False, default=True</p></li>
+<li><p><strong>inplace</strong> – bool whether to make changes to self.df in place,
+default=True</p></li>
+<li><p><strong>return_series</strong> – bool whether to return modified pandas.Series
+object, default=False</p></li>
+<li><p><strong>target_column</strong> – None or string name of new column created, if
+None and inplace=True, modified series replaces original column,
+default=None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>pandas.Series if return_series is specified as True</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-basedata.ops.ids">
+<span id="basedata-ops-ids-module"></span><h2>basedata.ops.ids module<a class="headerlink" href="#module-basedata.ops.ids" title="Permalink to this headline">¶</a></h2>
+<p>This submodule basedata.ops mixin classes for cleaning unique ID values.</p>
+<p>The functionality of these mixin classes is aggregated in the basedata.ops
+BaseDataOps class.</p>
+<dl class="class">
+<dt id="basedata.ops.ids.DedupeMixin">
+<em class="property">class </em><code class="sig-prename descclassname">basedata.ops.ids.</code><code class="sig-name descname">DedupeMixin</code><a class="headerlink" href="#basedata.ops.ids.DedupeMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Mixin class methods used to inspect dataframe objects for duplicate key
+values, analyze duplicate key records, and to remove duplicate key records
+once identified.</p>
+<dl class="method">
+<dt id="basedata.ops.ids.DedupeMixin.drop_dupes">
+<code class="sig-name descname">drop_dupes</code><span class="sig-paren">(</span><em class="sig-param">column</em>, <em class="sig-param">index_list</em>, <em class="sig-param">validate=True</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.ids.DedupeMixin.drop_dupes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Drops rows in self.df based on input index_list values, will
+return print message if any duplicate vlaues remain in the specified
+column.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index_list</strong> – list indices to be dropped</p></li>
+<li><p><strong>validate</strong> – bool raises exception if duplicates still remain</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="basedata.ops.ids.DedupeMixin.flush_duperecords">
+<code class="sig-name descname">flush_duperecords</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.ids.DedupeMixin.flush_duperecords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes self.duperecords dictionary from class __dict__ to free memory</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="basedata.ops.ids.DedupeMixin.report_dupes">
+<code class="sig-name descname">report_dupes</code><span class="sig-paren">(</span><em class="sig-param">column</em>, <em class="sig-param">to_file=None</em>, <em class="sig-param">return_df=True</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.ids.DedupeMixin.report_dupes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invokes a dataframe consisting of records associated with duplicate
+values in the specified column and saves csv of dataframe to file if
+specified.</p>
+<p>In saved csv, duplicate records indices are save in column ‘index_id’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>column</strong> – str name of column to check for duplicate values</p></li>
+<li><p><strong>to_file</strong> – str optional filename if a csv of the duplicates
+dataframe should be saved. Default is None.</p></li>
+<li><p><strong>return_df</strong> – bool indicates whether or not to return dataframe</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>pandas.Dataframe of all records associated with column dupes</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="basedata.ops.ids.ValidIDsMixin">
+<em class="property">class </em><code class="sig-prename descclassname">basedata.ops.ids.</code><code class="sig-name descname">ValidIDsMixin</code><a class="headerlink" href="#basedata.ops.ids.ValidIDsMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>functions for validating and modifying ID values</p>
+<dl class="method">
+<dt id="basedata.ops.ids.ValidIDsMixin.drop_blankID_rows">
+<code class="sig-name descname">drop_blankID_rows</code><span class="sig-paren">(</span><em class="sig-param">column</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.ids.ValidIDsMixin.drop_blankID_rows" title="Permalink to this definition">¶</a></dt>
+<dd><p>drops all rows from self.df where the choosen column value
+is a nan value</p>
+<p>changes to self.df are made inplace and the df index is reset to
+contiguous values 0-n.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="basedata.ops.ids.ValidIDsMixin.remove_offlenIDs">
+<code class="sig-name descname">remove_offlenIDs</code><span class="sig-paren">(</span><em class="sig-param">column</em>, <em class="sig-param">target_len=8</em>, <em class="sig-param">pattern='[0-9]'</em>, <em class="sig-param">val_new=nan</em>, <em class="sig-param">val_exception=nan</em>, <em class="sig-param">inplace=True</em>, <em class="sig-param">return_series=False</em>, <em class="sig-param">target_column=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.ids.ValidIDsMixin.remove_offlenIDs" title="Permalink to this definition">¶</a></dt>
+<dd><p>removes all IDs not matching the desired character length and replaces
+them with a chosen replacement value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_len</strong> – int specifying length of a valid id, default=8</p></li>
+<li><p><strong>pattern</strong> – str Regex pattern specifying which types of characters
+to substiture with val_sub str, default=’[0-9]’</p></li>
+<li><p><strong>val_new</strong> – str or numpy.nan value with which to replace values
+of incorrect length, default=numpy.nan</p></li>
+<li><p><strong>val_exception</strong> – str or numpy.nan value to return for instances
+where an exception is raised, default=numpy.nan</p></li>
+<li><p><strong>inplace</strong> – bool whether to make changes to self.df in place,
+default=True</p></li>
+<li><p><strong>return_series</strong> – bool whether to return modified pandas.Series
+object, default=False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>pandas.Series of column values after replacing offlenIDs</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="basedata.ops.ids.ValidIDsMixin.replace_blankIDs">
+<code class="sig-name descname">replace_blankIDs</code><span class="sig-paren">(</span><em class="sig-param">column</em>, <em class="sig-param">replace_col</em>, <em class="sig-param">inplace=True</em>, <em class="sig-param">return_series=False</em>, <em class="sig-param">target_column=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.ids.ValidIDsMixin.replace_blankIDs" title="Permalink to this definition">¶</a></dt>
+<dd><p>replaces all blank ID values with the corresponding values from
+a different value in the same dataframe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>replace_col</strong> – str name of column with replacement values</p></li>
+<li><p><strong>inplace</strong> – bool make changes to self.df inplace, default=True</p></li>
+<li><p><strong>return_series</strong> – bool whether to return modified pandas.Series
+object, default=False</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="basedata.ops.ids.ValidIDsMixin.report_offlenIDs">
+<code class="sig-name descname">report_offlenIDs</code><span class="sig-paren">(</span><em class="sig-param">column</em>, <em class="sig-param">target_len=8</em>, <em class="sig-param">dropna=False</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.ids.ValidIDsMixin.report_offlenIDs" title="Permalink to this definition">¶</a></dt>
+<dd><p>generate a value_counts report with all of the column values
+with number of characters not matching the specified target length</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_len</strong> – int specifying length of a valid id, default=8</p></li>
+<li><p><strong>dropna</strong> – bool indicating whether to include np.nan values in
+the output value_counts series, default=False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>pandas.Series of the IDs not matching the target_len</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="basedata.ops.ids.ValidIDsMixin.strip_nonnumeric">
+<code class="sig-name descname">strip_nonnumeric</code><span class="sig-paren">(</span><em class="sig-param">column</em>, <em class="sig-param">pattern='[^0-9]'</em>, <em class="sig-param">val_sub=''</em>, <em class="sig-param">val_exception=nan</em>, <em class="sig-param">val_none=nan</em>, <em class="sig-param">inplace=True</em>, <em class="sig-param">return_series=False</em>, <em class="sig-param">target_column=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.ids.ValidIDsMixin.strip_nonnumeric" title="Permalink to this definition">¶</a></dt>
+<dd><p>strips nonnumeric characters from column values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pattern</strong> – str Regex pattern specifying which types of charaters
+to substiture with val_sub str, optional, default=’[^0-9]’</p></li>
+<li><p><strong>val_sub</strong> – str character(s) with which to replace pattern values,
+default = ‘’</p></li>
+<li><p><strong>val_exception</strong> – str or numpy.nan value to return for instances
+where an exception is raised</p></li>
+<li><p><strong>val_none</strong> – str or numpy.nan value to return for instances of
+either None or np.nan</p></li>
+<li><p><strong>inplace</strong> – bool whether to make changes to self.df in place,
+default=True</p></li>
+<li><p><strong>return_series</strong> – bool whether to return modified pandas.Series
+object, default=False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>pandas.Series if return_series is specified as True</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-basedata.ops">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-basedata.ops" title="Permalink to this headline">¶</a></h2>
+<p>This submodule contains the BaseDataOps class, which aggregates basedata.ops
+mixin classes and BaseDataClass functionality.</p>
+<dl class="class">
+<dt id="basedata.ops.BaseDataOps">
+<em class="property">class </em><code class="sig-prename descclassname">basedata.ops.</code><code class="sig-name descname">BaseDataOps</code><span class="sig-paren">(</span><em class="sig-param">input_df</em>, <em class="sig-param">copy_input</em><span class="sig-paren">)</span><a class="headerlink" href="#basedata.ops.BaseDataOps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#basedata.ops.cols.ColumnConversionsMixin" title="basedata.ops.cols.ColumnConversionsMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">basedata.ops.cols.ColumnConversionsMixin</span></code></a>, <a class="reference internal" href="#basedata.ops.ids.DedupeMixin" title="basedata.ops.ids.DedupeMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">basedata.ops.ids.DedupeMixin</span></code></a>, <a class="reference internal" href="#basedata.ops.ids.ValidIDsMixin" title="basedata.ops.ids.ValidIDsMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">basedata.ops.ids.ValidIDsMixin</span></code></a>, <a class="reference internal" href="#basedata.ops.base.BaseDataClass" title="basedata.ops.base.BaseDataClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">basedata.ops.base.BaseDataClass</span></code></a></p>
+<p>The BaseDataOps class inherits core class functionality from the
+BaseDataClass parent class and acts as the core data operations class in
+which the methods of the many specialized mixin classes is combined.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+              <div class="related bottom">
+                &nbsp;
+  <nav id="rellinks">
+    <ul>
+        <li>
+          &larr;
+          <a href="basedata.inventory.html" title="Previous document">basedata.inventory package</a>
+        </li>
+        <li>
+          <a href="contributing.html" title="Next document">Contributing</a>
+          &rarr;
+        </li>
+    </ul>
+  </nav>
+              </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">BaseData</a></h1>
+
+
+
+<p class="blurb">A utilities library for Python-based data analysis.</p>
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=sedelmeyer&repo=basedata&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+    
+
+<p>
+<a class="badge" href="https://travis-ci.org/sedelmeyer/basedata">
+    <img
+        alt="https://secure.travis-ci.org/sedelmeyer/basedata.svg?branch=master"
+        src="https://secure.travis-ci.org/sedelmeyer/basedata.svg?branch=master"
+    />
+</a>
+</p>
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">BaseData Utilities Python Library</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">basedata</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="basedata.html">basedata package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+
+<hr />
+<ul>
+    
+    <li class="toctree-l1"><a href="https://www.sedelmeyer.net/">Find me online at sedelmeyer.net</a></li>
+    
+    <li class="toctree-l1"><a href="https://github.com/sedelmeyer">github/sedelmeyer</a></li>
+    
+    <li class="toctree-l1"><a href="https://www.linkedin.com/in/sedelmeyer/">linkedin/sedelmeyer</a></li>
+    
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">basedata</a><ul>
+  <li><a href="basedata.html">basedata package</a><ul>
+      <li>Previous: <a href="basedata.inventory.html" title="previous chapter">basedata.inventory package</a></li>
+      <li>Next: <a href="contributing.html" title="next chapter">Contributing</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019-2020, Michael Sedelmeyer.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/basedata.ops.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/sedelmeyer/basedata" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>
