@@ -7,13 +7,12 @@ Future releases
 
 .. todo::
 
-    * Remove uneeded files from project
+    * ...
 
-0.6.4 (2020-01-...
+0.6.4 (2020-01-16)
 ------------------
 
 * Update ``CHANGELOG.rst`` to reflect project version history.
-* ...
 
 0.6.3 (2020-01-15)
 ------------------
